@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nikita Sachan | Marketing Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #1a1a2e;
+      --dark: #16213e;
+      --mid: #0f3460;
+      --rose: #c9748a;
+      --rose-light: #e8a0b4;
+      --gold: #d4a853;
+      --white: #ffffff;
+      --light: #f9f5f6;
+      --gray: #6c757d;
+      --card-bg: rgba(255,255,255,0.05);
+      --glass: rgba(255,255,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(22, 33, 62, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+      padding: 0.7rem 2rem;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--rose); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--rose);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 25px; height: 2px; background: white; transition: 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 80%, #1a1a2e 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 2rem 2rem;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,116,138,0.15) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      border-radius: 50%;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 70%);
+      bottom: -50px; left: -50px;
+      border-radius: 50%;
+    }
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content { }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(201,116,138,0.2);
+      border: 1px solid rgba(201,116,138,0.4);
+      color: var(--rose-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.8s ease;
+    }
+    h1.hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+    h1.hero-name span { color: var(--rose); }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .hero-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+    .role-tag {
+      background: rgba(212,168,83,0.15);
+      border: 1px solid rgba(212,168,83,0.35);
+      color: var(--gold);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.5s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--rose), #a85578);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201,116,138,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201,116,138,0.5);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      transform: translateY(-3px);
+    }
+    .hero-image-wrap {
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 1s ease 0.3s both;
+    }
+    .hero-photo-frame {
+      position: relative;
+      width: 380px;
+      height: 480px;
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -15px;
+      border: 2px solid rgba(201,116,138,0.4);
+      border-radius: 20px;
+      animation: pulse-border 3s ease infinite;
+    }
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(201,116,138,0.3), transparent);
+      border-radius: 50%;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .hero-stat-badges {
+      position: absolute;
+      bottom: 20px;
+      left: -30px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .stat-badge {
+      background: rgba(22,33,62,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,116,138,0.3);
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .stat-badge i { color: var(--rose); font-size: 1rem; }
+    .stat-badge span { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; }
+    .section-container { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-label {
+      display: inline-block;
+      color: var(--rose);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .section-divider::before, .section-divider::after {
+      content: '';
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--rose));
+    }
+    .section-divider::after { background: linear-gradient(to left, transparent, var(--rose)); }
+    .section-divider i { color: var(--rose); font-size: 0.6rem; }
+
+    /* ── ABOUT ── */
+    #about { background: linear-gradient(180deg, var(--navy) 0%, var(--dark) 100%); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-image-wrap { position: relative; }
+    .about-img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+      display: block;
+    }
+    .about-accent-box {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: linear-gradient(135deg, var(--rose), #a85578);
+      border-radius: 15px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(201,116,138,0.4);
+    }
+    .about-accent-box .big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      display: block;
+    }
+    .about-accent-box .big-label { font-size: 0.7rem; font-weight: 500; opacity: 0.9; }
+    .about-text p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+    .about-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    .about-info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .about-info-item i { color: var(--rose); font-size: 0.9rem; }
+
+    /* ── VISION ── */
+    #vision { background: var(--dark); }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .vision-card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,116,138,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .vision-card:hover { transform: translateY(-5px); border-color: rgba(201,116,138,0.3); }
+    .vision-card:hover::before { opacity: 1; }
+    .vision-card.full-width { grid-column: 1 / -1; }
+    .vision-icon {
+      width: 55px; height: 55px;
+      background: linear-gradient(135deg, rgba(201,116,138,0.2), rgba(201,116,138,0.05));
+      border: 1px solid rgba(201,116,138,0.3);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .vision-icon i { color: var(--rose); font-size: 1.3rem; }
+    .vision-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--white);
+    }
+    .vision-card p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--navy); }
+    .edu-timeline { position: relative; }
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--rose), rgba(201,116,138,0.1));
+    }
+    .edu-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      padding-left: 60px;
+    }
+    .edu-dot {
+      position: absolute;
+      left: 12px; top: 8px;
+      width: 18px; height: 18px;
+      background: var(--rose);
+      border: 3px solid var(--navy);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(201,116,138,0.5);
+    }
+    .edu-card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      width: 100%;
+      transition: all 0.3s;
+    }
+    .edu-card:hover { border-color: rgba(201,116,138,0.3); transform: translateX(5px); }
+    .edu-year {
+      display: inline-block;
+      background: rgba(201,116,138,0.15);
+      border: 1px solid rgba(201,116,138,0.3);
+      color: var(--rose-light);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .edu-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .edu-card .edu-school {
+      color: var(--rose-light);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .edu-card .edu-detail {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--dark); }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .exp-card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .exp-card:hover { transform: translateY(-8px); border-color: rgba(201,116,138,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .exp-card:hover::after { transform: scaleX(1); }
+    .exp-company-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .exp-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, rgba(201,116,138,0.2), rgba(212,168,83,0.1));
+      border: 1px solid rgba(201,116,138,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .exp-icon i { color: var(--rose); font-size: 1.2rem; }
+    .exp-company-info h4 {
+      font-size: 0.75rem;
+      color: var(--rose-light);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .exp-company-info span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .exp-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .exp-period {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .exp-period i { color: var(--rose); font-size: 0.75rem; }
+    .exp-duties {
+      list-style: none;
+    }
+    .exp-duties li {
+      padding: 0.4rem 0;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.87rem;
+      line-height: 1.6;
+      display: flex;
+      gap: 0.6rem;
+    }
+    .exp-duties li::before {
+      content: '▸';
+      color: var(--rose);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--navy); }
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .skills-group { }
+    .skills-group-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skills-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,116,138,0.2);
+    }
+    .skill-item {
+      margin-bottom: 1.2rem;
+    }
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+    }
+    .skill-name {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .skill-pct {
+      font-size: 0.78rem;
+      color: var(--rose-light);
+      font-weight: 600;
+    }
+    .skill-bar-bg {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--rose), var(--rose-light));
+      border-radius: 10px;
+      width: 0%;
+      transition: width 1.2s ease;
+    }
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .skill-tag {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.45rem 1rem;
+      border-radius: 25px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      transition: all 0.3s;
+    }
+    .skill-tag:hover {
+      background: rgba(201,116,138,0.15);
+      border-color: rgba(201,116,138,0.4);
+      color: var(--rose-light);
+    }
+    .cert-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1rem 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s;
+    }
+    .cert-card:hover { border-color: rgba(201,116,138,0.3); transform: translateX(5px); }
+    .cert-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, rgba(212,168,83,0.2), rgba(212,168,83,0.05));
+      border: 1px solid rgba(212,168,83,0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-icon i { color: var(--gold); font-size: 1rem; }
+    .cert-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+    .cert-card p { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+    /* ── COMPETENCIES ── */
+    #competencies { background: var(--dark); }
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+    .comp-card {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .comp-card:hover { transform: translateY(-6px); border-color: rgba(201,116,138,0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+    .comp-circle {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, rgba(201,116,138,0.2), rgba(201,116,138,0.05));
+      border: 1px solid rgba(201,116,138,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .comp-circle i { color: var(--rose); font-size: 1.5rem; }
+    .comp-card h3 { font-size: 0.92rem; font-weight: 600; color: var(--white); line-height: 1.4; }
+
+    /* ── RESUME ── */
+    #resume { background: var(--navy); }
+    .resume-section-inner {
+      background: linear-gradient(135deg, rgba(201,116,138,0.08) 0%, rgba(15,52,96,0.5) 100%);
+      border: 1px solid rgba(201,116,138,0.2);
+      border-radius: 24px;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .resume-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .resume-text h2 span { color: var(--rose); }
+    .resume-text p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .resume-preview {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .resume-preview i { font-size: 4rem; color: var(--rose); opacity: 0.8; }
+    .resume-preview p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--rose), #a85578);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 5px 25px rgba(201,116,138,0.4);
+    }
+    .btn-download:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(201,116,138,0.5); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .contact-info-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .contact-info-section h3 span { color: var(--rose); }
+    .contact-info-section p {
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-size: 0.92rem;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1rem 1.3rem;
+      text-decoration: none;
+      color: var(--white);
+      transition: all 0.3s;
+    }
+    .contact-item:hover { border-color: rgba(201,116,138,0.4); transform: translateX(5px); }
+    .contact-item-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, rgba(201,116,138,0.2), rgba(201,116,138,0.05));
+      border: 1px solid rgba(201,116,138,0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-icon i { color: var(--rose); font-size: 1rem; }
+    .contact-item-text small { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; }
+    .contact-item-text span { font-size: 0.88rem; font-weight: 500; }
+    .contact-form-section {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .contact-form-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; letter-spacing: 0.5px; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--rose); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .btn-send {
+      width: 100%;
+      background: linear-gradient(135deg, var(--rose), #a85578);
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .btn-send:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,116,138,0.4); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-name span { color: var(--rose); }
+    .footer-tagline {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-btn {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .social-btn:hover { background: rgba(201,116,138,0.2); border-color: var(--rose); color: var(--rose); transform: translateY(-3px); }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse-border {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.02); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-image-wrap { order: -1; }
+      .hero-photo-frame { width: 260px; height: 330px; margin: 0 auto; }
+      .hero-stat-badges { display: none; }
+      .hero-btns { justify-content: center; }
+      .hero-roles { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-wrap { text-align: center; }
+      .about-img { max-width: 280px; margin: 0 auto; }
+      .about-accent-box { right: calc(50% - 170px); }
+      .vision-grid { grid-template-columns: 1fr; }
+      .vision-card.full-width { grid-column: 1; }
+      .skills-layout { grid-template-columns: 1fr; }
+      .resume-section-inner { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; text-align: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: rgba(22,33,62,0.98);
+        padding: 2rem;
+        gap: 1.5rem;
+        backdrop-filter: blur(12px);
+      }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 1rem; }
+      .about-info-grid { grid-template-columns: 1fr; }
+      .resume-text h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Nikita<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-tag">✦ Marketing Professional &amp; Entrepreneur-in-Making</div>
+      <h1 class="hero-name">Hi, I'm<br><span>Nikita Sachan</span></h1>
+      <p class="hero-tagline">PGDM Marketing Student at ISBR Business School | Passionate about Brand Strategy, Consumer Psychology &amp; Data-Driven Growth</p>
+      <div class="hero-roles">
+        <span class="role-tag"><i class="fas fa-chart-line"></i> Marketing Strategy</span>
+        <span class="role-tag"><i class="fas fa-users"></i> Brand Management</span>
+        <span class="role-tag"><i class="fas fa-flask"></i> Skincare Innovator</span>
+        <span class="role-tag"><i class="fas fa-analytics"></i> Business Analytics</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-primary"><i class="fas fa-briefcase"></i> View Experience</a>
+        <a href="https://www.genspark.ai/api/files/s/Yf0ZbGEP" target="_blank" class="btn-outline"><i class="fas fa-download"></i> Download Resume</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-photo-frame">
+        <img src="https://www.genspark.ai/api/files/s/DXeSNt0n" alt="Nikita Sachan" class="hero-photo"/>
+        <div class="hero-stat-badges">
+          <div class="stat-badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>PGDM Marketing</span>
+          </div>
+          <div class="stat-badge">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Bengaluru, India</span>
+          </div>
+          <div class="stat-badge">
+            <i class="fas fa-certificate"></i>
+            <span>Bloomberg Certified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Get to Know Me</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <img src="https://www.genspark.ai/api/files/s/DXeSNt0n" alt="Nikita Sachan" class="about-img"/>
+        <div class="about-accent-box">
+          <span class="big-num">2+</span>
+          <span class="big-label">Years of Experience</span>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p>I am <strong>Nikita Sachan</strong>, a dedicated PGDM Marketing student at ISBR Business School, Bengaluru, with a strong foundation in marketing strategy, consumer behavior, and market research. My academic journey spans diverse disciplines — from Natural Sciences to Education — equipping me with a uniquely analytical and empathetic perspective in business.</p>
+        <p>My professional experience as a <strong>Customer Relations Manager</strong> at Eveez.Co and a <strong>Business Development Executive</strong> at Younity has sharpened my skills in campaign planning, brand positioning, sales strategy, and data-driven decision-making. I thrive at the intersection of creativity and analytics.</p>
+        <p>Beyond the classroom, I am passionate about <strong>consumer psychology</strong>, the beauty and skincare industry, and leveraging <strong>AI-driven personalization</strong> to build impactful brands. My ultimate aspiration is to launch a personalized skincare venture that makes beauty more accessible, effective, and inclusive.</p>
+        <div class="about-info-grid">
+          <div class="about-info-item"><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb858280829f8ac5988a88838a859b8cd9ded9dddfab82988999c58285">[email&#160;protected]</a></div>
+          <div class="about-info-item"><i class="fas fa-phone"></i> +91 89573 68463</div>
+          <div class="about-info-item"><i class="fas fa-map-marker-alt"></i> Electronic City, Bengaluru</div>
+          <div class="about-info-item"><i class="fas fa-flag"></i> Indian National</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VISION ══════════ -->
+<section id="vision">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Where I'm Headed</p>
+      <h2 class="section-title">My Long-Term Career Vision</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-card reveal">
+        <div class="vision-icon"><i class="fas fa-telescope"></i></div>
+        <h3>The Vision</h3>
+        <p>To become a <strong>strategic marketing leader</strong> who combines data-driven decision-making, consumer psychology, and operational efficiency to build impactful and scalable brands — operating at the intersection of marketing strategy, analytics, and innovation, especially in the beauty and skincare industry.</p>
+      </div>
+      <div class="vision-card reveal">
+        <div class="vision-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>The Ultimate Goal</h3>
+        <p>To <strong>build and lead a personalized skincare venture</strong> that leverages AI-driven customization, consumer insights, and smart product bundling to deliver tailored skincare solutions — making skincare more accessible, effective, and personalized for every individual.</p>
+      </div>
+      <div class="vision-card reveal">
+        <div class="vision-icon"><i class="fas fa-road"></i></div>
+        <h3>What I'm Working Towards</h3>
+        <p>Currently pursuing my <strong>PGDM in Marketing</strong>, building competencies in brand management, analytics, and digital marketing. Developing a research concept around personalized skincare bundling, while strengthening my strategic thinking through internships and live projects.</p>
+      </div>
+      <div class="vision-card reveal">
+        <div class="vision-icon"><i class="fas fa-heart"></i></div>
+        <h3>My Bigger Purpose</h3>
+        <p>To create a brand that stands for <strong>trust, innovation, and personalization</strong> — helping people make better skincare choices and feel genuinely confident in their own skin. Merging science with empathy to serve real human needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EDUCATION ══════════ -->
+<section id="education">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Academic Journey</p>
+      <h2 class="section-title">Education</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="edu-timeline">
+
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <span class="edu-year"><i class="fas fa-calendar-alt"></i> July 2025 – Present</span>
+          <h3>PGDM (MBA) in Marketing</h3>
+          <div class="edu-school">ISBR Business School, Bengaluru</div>
+          <div class="edu-detail">Specialization in Marketing Strategy, Consumer Behavior, Brand Management, Market Research, Integrated Marketing Communications &amp; Digital Marketing</div>
+        </div>
+      </div>
+
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <span class="edu-year"><i class="fas fa-calendar-alt"></i> May 2022 – May 2024</span>
+          <h3>Bachelor of Education (B.Ed.)</h3>
+          <div class="edu-school">C.S.J.M University</div>
+          <div class="edu-detail">Gained strong skills in pedagogy, communication, analytical thinking, and curriculum planning — forming a foundation for strategic business communication</div>
+        </div>
+      </div>
+
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <span class="edu-year"><i class="fas fa-calendar-alt"></i> June 2019 – June 2022</span>
+          <h3>B.Sc. in Botany &amp; Zoology</h3>
+          <div class="edu-school">Govt. PG College Hamirpur, Bundelkhand University</div>
+          <div class="edu-detail">Built a strong foundation in scientific thinking, data analysis, and research methodology — skills directly applicable to market research and consumer insights</div>
+        </div>
+      </div>
+
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <span class="edu-year"><i class="fas fa-calendar-alt"></i> March 2018 – May 2019</span>
+          <h3>Higher Secondary Certificate (Science)</h3>
+          <div class="edu-school">Onkareshwar Saraswati Vidya Niketan</div>
+          <div class="edu-detail">Completed Class XII in the Science stream, developing core quantitative and logical reasoning abilities</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EXPERIENCE ══════════ -->
+<section id="experience">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Professional Journey</p>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="exp-grid">
+
+      <div class="exp-card reveal">
+        <div class="exp-company-badge">
+          <div class="exp-icon"><i class="fas fa-users"></i></div>
+          <div class="exp-company-info">
+            <h4>Eveez.Co Ltd</h4>
+            <span>Full-time Role</span>
+          </div>
+        </div>
+        <h3>Customer Relations Manager</h3>
+        <div class="exp-period"><i class="fas fa-clock"></i> April 2025 – July 2025</div>
+        <ul class="exp-duties">
+          <li>Focused on improving customer loyalty and enhancing overall brand experience across all touchpoints</li>
+          <li>Managed customer feedback loops to identify pain points and drive satisfaction-driven improvements</li>
+          <li>Collaborated with cross-functional teams to align customer communication with brand values and marketing goals</li>
+          <li>Developed and executed strategies to increase customer retention and lifetime value</li>
+          <li>Applied data insights to personalize outreach and elevate the quality of customer interactions</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company-badge">
+          <div class="exp-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="exp-company-info">
+            <h4>Younity Ltd</h4>
+            <span>Business Development</span>
+          </div>
+        </div>
+        <h3>Business Development Executive</h3>
+        <div class="exp-period"><i class="fas fa-clock"></i> December 2024</div>
+        <ul class="exp-duties">
+          <li>Identified and evaluated new market opportunities to expand the company's business footprint</li>
+          <li>Provided strategic sales support and contributed to lead generation and pipeline development</li>
+          <li>Conducted market research to assess competitive landscape and identify growth levers</li>
+          <li>Assisted in crafting pitches, presentations, and proposals to win new business partnerships</li>
+          <li>Strengthened coordination between sales, marketing, and operations teams for cohesive execution</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">My Toolkit</p>
+      <h2 class="section-title">Skills &amp; Expertise</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="skills-layout">
+
+      <div>
+        <div class="skills-group reveal">
+          <p class="skills-group-title"><i class="fas fa-laptop"></i> Technical Tools</p>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Microsoft Excel (Advanced)</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Microsoft PowerPoint</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Microsoft Word</span><span class="skill-pct">88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">KNIME Analytics Platform</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70"></div></div>
+          </div>
+        </div>
+
+        <div class="skills-group reveal" style="margin-top:2rem;">
+          <p class="skills-group-title"><i class="fas fa-brain"></i> Soft Skills</p>
+          <div class="tags-container">
+            <span class="skill-tag">Leadership</span>
+            <span class="skill-tag">Public Speaking</span>
+            <span class="skill-tag">Critical Thinking</span>
+            <span class="skill-tag">Strategic Thinking</span>
+            <span class="skill-tag">Decision Making</span>
+            <span class="skill-tag">Adaptability</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skills-group reveal">
+          <p class="skills-group-title"><i class="fas fa-award"></i> Certifications</p>
+          <div class="cert-cards">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+              <div>
+                <h4>Bloomberg Market Concepts</h4>
+                <p>Bloomberg Professional · Financial Markets &amp; Economics</p>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <h4>KNIME Analytics Platform</h4>
+                <p>Data Analytics &amp; Workflow Automation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group reveal" style="margin-top:2rem;">
+          <p class="skills-group-title"><i class="fas fa-star"></i> Marketing Focus Areas</p>
+          <div class="tags-container">
+            <span class="skill-tag">Brand Positioning</span>
+            <span class="skill-tag">Campaign Planning</span>
+            <span class="skill-tag">Market Research</span>
+            <span class="skill-tag">Consumer Behavior</span>
+            <span class="skill-tag">Digital Marketing</span>
+            <span class="skill-tag">IMC</span>
+            <span class="skill-tag">CRM</span>
+            <span class="skill-tag">Data Analytics</span>
+            <span class="skill-tag">Product Strategy</span>
+            <span class="skill-tag">Sales Strategy</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COMPETENCIES ══════════ -->
+<section id="competencies">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Core Strengths</p>
+      <h2 class="section-title">Key Competencies</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-bullhorn"></i></div>
+        <h3>Marketing Strategy &amp; Campaign Planning</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-gem"></i></div>
+        <h3>Brand Management &amp; Positioning</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-handshake"></i></div>
+        <h3>Sales &amp; Customer Relationship Management</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-comments"></i></div>
+        <h3>Integrated Marketing Communication</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-chart-pie"></i></div>
+        <h3>Data-Driven Decision Making</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-cogs"></i></div>
+        <h3>Process Optimization &amp; Operations</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-user-friends"></i></div>
+        <h3>Consumer Psychology &amp; Market Research</h3>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-circle"><i class="fas fa-rocket"></i></div>
+        <h3>Startup &amp; Entrepreneurship Mindset</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RESUME DOWNLOAD ══════════ -->
+<section id="resume">
+  <div class="section-container">
+    <div class="resume-section-inner reveal">
+      <div class="resume-text">
+        <h2>Download My <span>Resume</span></h2>
+        <p>Get a comprehensive look at my qualifications, experiences, certifications, and skills. My resume is crafted to reflect my professional journey and my vision for the future of marketing and brand strategy.</p>
+        <a href="https://www.genspark.ai/api/files/s/Yf0ZbGEP" target="_blank" class="btn-download">
+          <i class="fas fa-file-pdf"></i> Download CV (PDF)
+        </a>
+      </div>
+      <div class="resume-preview">
+        <i class="fas fa-file-pdf"></i>
+        <p><strong>Nikita Sachan</strong><br/>PGDM Marketing · ISBR Business School<br/>Bengaluru, India</p>
+        <a href="https://www.genspark.ai/api/files/s/Yf0ZbGEP" target="_blank" class="btn-outline" style="margin-top:0.5rem; font-size:0.82rem; padding: 0.6rem 1.5rem;">
+          <i class="fas fa-eye"></i> Preview Online
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-label">Let's Connect</p>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-divider"><i class="fas fa-circle"></i></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-section reveal">
+        <h3>Let's Build Something <span>Great</span> Together</h3>
+        <p>Whether you're looking for a driven marketing professional, exploring brand collaboration, or just want to connect — I'd love to hear from you. I'm always open to new opportunities and meaningful conversations.</p>
+        <div class="contact-items">
+          <a href="/cdn-cgi/l/email-protection#98f6f1f3f1ecf9b6ebf9fbf0f9f6e8ffaaadaaaeacd8f1ebfaeab6f1f6" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-item-text">
+              <small>Email Me</small>
+              <span><span class="__cf_email__" data-cfemail="8de3e4e6e4f9eca3feeceee5ece3fdeabfb8bfbbb9cde4feefffa3e4e3">[email&#160;protected]</span></span>
+            </div>
+          </a>
+          <a href="tel:+918957368463" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-item-text">
+              <small>Call Me</small>
+              <span>+91 89573 68463</span>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-item-text">
+              <small>Location</small>
+              <span>Electronic City, Bengaluru, India</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-university"></i></div>
+            <div class="contact-item-text">
+              <small>Institution</small>
+              <span>ISBR Business School</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-section reveal">
+        <h3><i class="fas fa-paper-plane" style="color:var(--rose);margin-right:0.5rem;"></i>Send Me a Message</h3>
+        <form onsubmit="sendMessage(event)">
+          <div class="form-group">
+            <label>YOUR NAME</label>
+            <input type="text" placeholder="e.g. Priya Sharma" required/>
+          </div>
+          <div class="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input type="email" placeholder="your@email.com" required/>
+          </div>
+          <div class="form-group">
+            <label>SUBJECT</label>
+            <input type="text" placeholder="e.g. Internship Opportunity" required/>
+          </div>
+          <div class="form-group">
+            <label>MESSAGE</label>
+            <textarea placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-name">Nikita<span> Sachan</span></div>
+  <div class="footer-tagline">Marketing Strategist · Brand Enthusiast · Future Skincare Entrepreneur</div>
+  <div class="footer-social">
+    <a href="/cdn-cgi/l/email-protection#e9878082809d88c79a888a818887998edbdcdbdfdda9809a8b9bc78087" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="tel:+918957368463" class="social-btn" title="Phone"><i class="fas fa-phone"></i></a>
+    <a href="https://www.linkedin.com/in/nikita-sachan" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.genspark.ai/api/files/s/Yf0ZbGEP" target="_blank" class="social-btn" title="Resume"><i class="fas fa-file-pdf"></i></a>
+  </div>
+  <div class="footer-copy">© 2025 Nikita Sachan · ISBR Business School, Bengaluru · Crafted with ❤️ &amp; Ambition</div>
+</footer>
+
+<!-- ══════════ JS ══════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // ── Mobile menu toggle
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // ── Intersection Observer for reveal animations
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate skill bars
+        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Animate skill bars that are already visible on load
+  document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    const parent = bar.closest('.reveal');
+    if (!parent) bar.style.width = bar.dataset.width + '%';
+  });
+
+  // ── Contact form
+  function sendMessage(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-send');
+    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #28a745, #1e7e34)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // ── Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--rose)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
